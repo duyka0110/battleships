@@ -1,0 +1,10 @@
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.csprojAssemblyReference.cache
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.Form1.resources
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.Properties.Resources.resources
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.csproj.GenerateResource.cache
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.csproj.CoreCompileInputs.cache
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\bin\Debug\Battleships.exe.config
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\bin\Debug\Battleships.exe
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\bin\Debug\Battleships.pdb
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.exe
+E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.pdb

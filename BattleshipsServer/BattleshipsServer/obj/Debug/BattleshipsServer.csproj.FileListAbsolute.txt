@@ -1,0 +1,7 @@
+E:\DOCUMENTS\BK\DATN\BattleshipsServer\BattleshipsServer\bin\Debug\BattleshipsServer.exe.config
+E:\DOCUMENTS\BK\DATN\BattleshipsServer\BattleshipsServer\bin\Debug\BattleshipsServer.exe
+E:\DOCUMENTS\BK\DATN\BattleshipsServer\BattleshipsServer\bin\Debug\BattleshipsServer.pdb
+E:\DOCUMENTS\BK\DATN\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.csprojAssemblyReference.cache
+E:\DOCUMENTS\BK\DATN\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.csproj.CoreCompileInputs.cache
+E:\DOCUMENTS\BK\DATN\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.exe
+E:\DOCUMENTS\BK\DATN\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.pdb
