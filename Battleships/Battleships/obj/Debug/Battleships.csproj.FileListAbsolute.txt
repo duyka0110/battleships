@@ -8,3 +8,13 @@ E:\DOCUMENTS\BK\DATN\Battleships\Battleships\bin\Debug\Battleships.exe
 E:\DOCUMENTS\BK\DATN\Battleships\Battleships\bin\Debug\Battleships.pdb
 E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.exe
 E:\DOCUMENTS\BK\DATN\Battleships\Battleships\obj\Debug\Battleships.pdb
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\bin\Debug\Battleships.exe.config
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\bin\Debug\Battleships.exe
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\bin\Debug\Battleships.pdb
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\obj\Debug\Battleships.csprojAssemblyReference.cache
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\obj\Debug\Battleships.Form1.resources
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\obj\Debug\Battleships.Properties.Resources.resources
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\obj\Debug\Battleships.csproj.GenerateResource.cache
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\obj\Debug\Battleships.csproj.CoreCompileInputs.cache
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\obj\Debug\Battleships.exe
+D:\downloadmf\battleships-master\battleships-master\Battleships\Battleships\obj\Debug\Battleships.pdb
