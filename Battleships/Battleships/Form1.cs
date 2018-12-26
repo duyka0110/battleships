@@ -171,6 +171,7 @@ namespace Battleships {
 				SetText(Environment.NewLine + "Connecting ... ");
 				StartClient(tbIP.Text);
 				tbIP.Visible = false;
+				createBtn.Enabled = false;
 			}
 
 		}
@@ -342,24 +343,11 @@ namespace Battleships {
 			if (beShotFlag) {
 				int leftAnchorSize2 = leftAnchorSize + sqSize.Width * dimension + midAnchorSize;
 				SolidBrush brush;
-				Pen pen;
-				int x, y;
-				/*
-				if (beShotValue == -1) {
-					/// Redraw board element UI
-					brush = new SolidBrush(Color.DarkGray);
-					pen = new Pen(Color.Purple, 3);
-					// UI distance
-					x = beShootJ * sqSize.Width + leftAnchorSize2 + 1;
-					y = beShootI * sqSize.Width + leftAnchorSize + 1;
-					graphics.FillRectangle(brush, x, y, sqSize.Width - 1, sqSize.Height - 1);
-				}
-				*/
 				/// Draw Shoot UI
 				brush = new SolidBrush(Color.Purple);
 				// UI distance
-				x = beShotJ2 * sqSize.Width + sqSize.Width / 2 + leftAnchorSize2;
-				y = beShotI2 * sqSize.Width + sqSize.Width / 2 + leftAnchorSize;
+				int x = beShotJ2 * sqSize.Width + sqSize.Width / 2 + leftAnchorSize2;
+				int y = beShotI2 * sqSize.Width + sqSize.Width / 2 + leftAnchorSize;
 				Point point = new Point(x - leftAnchorSize / 2, y - leftAnchorSize / 2);
 				Size size = new Size(leftAnchorSize, leftAnchorSize);
 				Rectangle rect = new Rectangle(point, size);
@@ -566,10 +554,12 @@ namespace Battleships {
 				}
 				catch (Exception e) {
 					SetText(Environment.NewLine + e.ToString());
+					createBtn.Enabled = true;
 				}
 			}
 			if (!clientSocket.Connected) {
 				SetText(Environment.NewLine + "Connection attempts unsuccessful!");
+				createBtn.Enabled = true;
 				return;
 			}
 
@@ -591,11 +581,14 @@ namespace Battleships {
 						SetText(Environment.NewLine + e);
 					}
 				}
-				else
+				else {
 					SetText(Environment.NewLine + "End of connection attempt, fail to connect");
+					createBtn.Enabled = true;
+				}
 			}
 			catch (Exception e) {
 				SetText(Environment.NewLine + e.ToString());
+				createBtn.Enabled = true;
 			}
 		}
 

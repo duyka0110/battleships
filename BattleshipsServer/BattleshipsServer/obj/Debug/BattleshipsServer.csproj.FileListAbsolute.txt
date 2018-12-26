@@ -12,3 +12,10 @@ D:\downloadmf\battleships-master\battleships-master\BattleshipsServer\Battleship
 D:\downloadmf\battleships-master\battleships-master\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.csproj.CoreCompileInputs.cache
 D:\downloadmf\battleships-master\battleships-master\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.exe
 D:\downloadmf\battleships-master\battleships-master\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.pdb
+D:\DOCUMENTS\coding\DATN\battleships-master\BattleshipsServer\BattleshipsServer\bin\Debug\BattleshipsServer.exe.config
+D:\DOCUMENTS\coding\DATN\battleships-master\BattleshipsServer\BattleshipsServer\bin\Debug\BattleshipsServer.exe
+D:\DOCUMENTS\coding\DATN\battleships-master\BattleshipsServer\BattleshipsServer\bin\Debug\BattleshipsServer.pdb
+D:\DOCUMENTS\coding\DATN\battleships-master\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.csprojAssemblyReference.cache
+D:\DOCUMENTS\coding\DATN\battleships-master\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.csproj.CoreCompileInputs.cache
+D:\DOCUMENTS\coding\DATN\battleships-master\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.exe
+D:\DOCUMENTS\coding\DATN\battleships-master\BattleshipsServer\BattleshipsServer\obj\Debug\BattleshipsServer.pdb

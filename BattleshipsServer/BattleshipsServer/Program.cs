@@ -23,7 +23,8 @@ namespace BattleshipsServer {
 		static string SERVER_IP;										// Server IP
 		static Socket serverSocket;										// Server socket, to establish connection only
 		static bool flag1time;											// Used to signify 1 time transmitting data only
-		static AutoResetEvent eventConnect = new AutoResetEvent(false);		// To signal and wait, connecting specific
+		static AutoResetEvent eventConnect1 = new AutoResetEvent(false);        // To signal and wait, connecting specific
+		static AutoResetEvent eventConnect2 = new AutoResetEvent(false);        // To signal and wait, connecting specific
 		static AutoResetEvent eventReceive1 = new AutoResetEvent(false);     // To signal and wait, receiving specific, client1
 		static AutoResetEvent eventReceive2 = new AutoResetEvent(false);     // To signal and wait, receiving specific, client2
 		static AutoResetEvent eventSend1 = new AutoResetEvent(false);        // To signal and wait, sending specific, client1
@@ -51,6 +52,7 @@ namespace BattleshipsServer {
 			Socket socket = null;
 			try {
 				socket = serverSocket.EndAccept(result);
+				// Block third connection attempts
 				if (clientSockets.Count == NUM_OF_CLIENTS) {
 					Console.WriteLine("Maximum clients reached");
 					return;
@@ -65,7 +67,10 @@ namespace BattleshipsServer {
 				// Accepting new client
 				serverSocket.BeginAccept(new AsyncCallback(acceptCallback), null);
 				// To avoid sending multiple data at the same time
-				eventConnect.Set();
+				if (clientSockets.Count == NUM_OF_CLIENTS) {
+					eventConnect1.Set();
+					eventConnect2.Set();
+				}
 			}
 			catch (Exception e) {
 				Console.WriteLine(e.ToString());
@@ -319,8 +324,6 @@ namespace BattleshipsServer {
 
 		static void Main(string[] args) {
 
-			battleships = new Battleships();
-
 			// Listening at SERVER_IP and PORT_NO
 			SERVER_IP = GetLocalIP();
 			Console.WriteLine("Server started at IP: {0}, Port: {1}", SERVER_IP, PORT_NO);
@@ -329,14 +332,12 @@ namespace BattleshipsServer {
 			serverSocket.Listen(NUM_OF_CLIENTS); 
 			Console.WriteLine("Listening...");
 
-
 			// Begin accepting clients, Asyncly
 			serverSocket.BeginAccept(new AsyncCallback(acceptCallback), null);
 
-			// Initiate Battleships things
-			while (true) {
-				// Initiate data once only
-				if (clientSockets.Count == NUM_OF_CLIENTS && flag1time == false) {
+			WaitHandle.WaitAll(new WaitHandle[] { eventConnect1, eventConnect2 });
+			battleships = new Battleships();
+			if (clientSockets.Count == NUM_OF_CLIENTS && flag1time == false) {
 					for (int i = 0; i < clientSockets.Count; i++) {
 						// 2 Players connected
 						flag1time = false;
@@ -528,8 +529,9 @@ namespace BattleshipsServer {
 						clientSockets[1].Send(msgByte);
 						eventSend2.Set();
 					}
-				}
 			}
+			// Core loop, keep server running
+			while (true) ;
 
 		}
 
@@ -546,7 +548,10 @@ namespace BattleshipsServer {
 		public bool Turn1;													// 1 Turn. true if turn for player1
 		public int[] NumShips;												// 1 No. Ships
 		public int currShipLength;											// CurrShip for 2 players
-		public int GameOver;												// 1 GameOver									
+		public int GameOver;												// 1 Player1 wwins
+																			// 2 Player2 wins
+																			// 0 not yet
+
 		public readonly int[] ship5 = new int[5] { 1, 1, 1, 1, 1 };         // Ship Kinds
 		public readonly int[] ship4 = new int[4] { 1, 1, 1, 1 };
 		public readonly int[] ship3 = new int[3] { 1, 1, 1 };
@@ -582,7 +587,7 @@ namespace BattleshipsServer {
 					checkHit = -1;
 				}
 				// Shot + !Hit
-				else if (matrix2[i, j] == 0) {
+				else {
 					matrix2[i, j] = -2;
 					checkHit = -2;
 				}
@@ -596,7 +601,7 @@ namespace BattleshipsServer {
 					checkHit = -1;
 				}
 				// Shot + !Hit
-				else if (matrix1[i, j] == 0) {
+				else {
 					matrix1[i, j] = -2;
 					checkHit = -2;
 				}
@@ -620,61 +625,6 @@ namespace BattleshipsServer {
 		}
 
 	}
-
-	/*
-	/// Provider
-	/// A provider of Battleships type
-	public class ServerProvider : IObservable<Battleships> {
-
-		// Store references to observers
-		List<IObserver<Battleships>> observers;
-		private int num;
-
-		public ServerProvider() {
-			observers = new List<IObserver<Battleships>>();
-		}
-
-		// For observer to stop receiving notifications
-		// Is passed a reference to the subscribers collection and to the subscriber when the class is instantiated
-		private class Unsubscriber : IDisposable {
-
-			private List<IObserver<Battleships>> _observers;
-			private IObserver<Battleships> _observer;
-
-			public Unsubscriber(List<IObserver<Battleships>> observers, IObserver<Battleships> observer) {
-				this._observers = observers;
-				this._observer = observer;
-			}
-
-			public void Dispose() {
-				if (!(_observer == null))
-					_observers.Remove(_observer));
-			}
-
-		}
-
-		// Implement Subscribe method
-		public IDisposable Subscribe(IObserver<Battleships> observer) {
-			if (!observers.Contains(observer)) {
-				observers.Add(observer);
-			}
-			return new Unsubscriber(observers, observer);
-		}
-
-		public virtual void OnNext(Battleships battleships) {
-
-		}
-
-		public virtual void OnError(Exception e) {
-
-		}
-
-		public virtual void OnCompleted() {
-
-		}
-
-	}
-	*/
 
 }
 
